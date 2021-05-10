@@ -1,3 +1,5 @@
+import Utils.Chart;
+
 import java.util.*;
 
 import static java.lang.Math.pow;
@@ -107,5 +109,25 @@ public class Selection {
             prev = key;
         }
         System.out.println("F(x)=" + 1 + ", при " + "x>" + prev);
+    }
+
+    public void drawInfo() {
+
+        Chart chart = new Chart(this.empiricalDistributionFunction, calculateStatisticsSeries());
+        chart.drawEmpiricalDistributionFunctionChart();
+        chart.drawFrequencyHistogram();
+        chart.drawFrequencyPolygon();
+    }
+
+    public SortedMap<Double, Double> calculateStatisticsSeries() {
+        SortedMap<Double, Double> statisticsSeries = new TreeMap<>();
+        for (double datum : data) {
+            if (statisticsSeries.containsKey(datum)) {
+                statisticsSeries.replace(datum, statisticsSeries.get(datum) + 1);
+            } else {
+                statisticsSeries.put(datum, 1.0);
+            }
+        }
+        return statisticsSeries;
     }
 }

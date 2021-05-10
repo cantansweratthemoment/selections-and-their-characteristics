@@ -12,6 +12,13 @@
         <maven.compiler.source>14</maven.compiler.source>
         <maven.compiler.target>14</maven.compiler.target>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.knowm.xchart</groupId>
+            <artifactId>xchart</artifactId>
+            <version>3.8.0</version>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>

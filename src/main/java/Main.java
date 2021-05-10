@@ -6,5 +6,6 @@ public class Main {
                 -0.39, -0.53, 0.77, -0.77, 0.81};
         Selection selection = new Selection(data);
         selection.printInfo();
+        selection.drawInfo();
     }
 }
