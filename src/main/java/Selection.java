@@ -93,6 +93,19 @@ public class Selection {
     }
 
     public void printEmpiricalDistributionFunction() {
-        empiricalDistributionFunction.forEach((key, value) -> System.out.println("F(x)=" + value + ", при x<" + key));
+        double prev = 0;
+        boolean flag = true;
+        for (Map.Entry<Double, Double> entry : empiricalDistributionFunction.entrySet()) {
+            Double key = entry.getKey();
+            Double value = entry.getValue();
+            if (flag) {
+                System.out.println("F(x)=" + value + ", при x<=" + key);
+            } else {
+                System.out.println("F(x)=" + value + ", при " + prev + "<x<=" + key);
+            }
+            flag = false;
+            prev = key;
+        }
+        System.out.println("F(x)=" + 1 + ", при " + "x>" + prev);
     }
 }
