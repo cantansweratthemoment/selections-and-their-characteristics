@@ -2,7 +2,6 @@ package Utils;
 
 import org.knowm.xchart.*;
 import org.knowm.xchart.style.Styler;
-import org.knowm.xchart.style.markers.SeriesMarkers;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -44,6 +43,8 @@ public class Chart {
             ys.add(value);
         }
         xs.add(empiricalDistributionFunction.lastKey());
+        ys.add(1.0);
+        xs.add(empiricalDistributionFunction.lastKey()+0.5);
         ys.add(1.0);
         XYSeries series = empiricalDistributionFunctionChart.addSeries("F(x)", xs, ys);
         series.setMarkerColor(WINTER_SKY);
